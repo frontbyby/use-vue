@@ -5,6 +5,7 @@ import Second from './views/second-page.vue'
 //1.开始使用Router
 Vue.use(VueRouter)
 
+
 //2.配置路由
 const route = new VueRouter({
     routes: [
