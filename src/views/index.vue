@@ -1,5 +1,5 @@
 <template>
-    <div id="Second">
+    <div id="Index">
         <p class="bg">{{Msg}}</p>
         <router-link to='/index'>first page</router-link>
     </div>
@@ -11,7 +11,7 @@
         },
         data: function(){
            return {
-                Msg:'这是第二页,不是首页了'
+                Msg:'这是首页了'
            }
         }
     }
