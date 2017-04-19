@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import App from './App.vue'
 import route from './router-config'
-import 'mint-ui/lib/style.css'
-import Mint from 'mint-ui';
-Vue.use(Mint);
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-default/index.css'
+
+Vue.use(ElementUI);
 new Vue({
     el: '#app',
     router: route,
