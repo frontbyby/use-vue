@@ -35,6 +35,7 @@
                 console.log(this.form.name)
                 if (this.form.name && this.form.pwd) {
                     console.log('submit!');
+                    window.location.href = window.location.host+"/#/index"
                 }
                 
             }

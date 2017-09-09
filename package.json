@@ -4,7 +4,7 @@
   "author": "vue",
   "version": "0.0.1",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --host 0.0.0.0 --port 8088",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --host localhost --port 8088",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {

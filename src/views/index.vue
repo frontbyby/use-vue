@@ -1,7 +1,7 @@
 <template>
     <div id="Index">
         <p class="bg">{{Msg}}</p>
-        <router-link to='/index'>first page</router-link>
+        <router-link to='/load'>first page</router-link>
     </div>
 </template>
 <script>

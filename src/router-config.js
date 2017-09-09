@@ -8,6 +8,7 @@ Vue.use(VueRouter)
 
 //2.配置路由
 const route = new VueRouter({
+    linkActiveClass: "active",
     routes: [
         { path: '/index', component: Index }, //首页
         { path: '/load', component: Load}, //登录
