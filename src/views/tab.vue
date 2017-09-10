@@ -1,10 +1,14 @@
 <template>
-<div>
+<div class="tabs">
     <router-link to='/index'  active-class="active" tag="li">
-        <div class="Index">{{indexMsg}}</div>    
+        <div>
+            <dl><img src="../img/home-curr.png" alt=""></dl>
+            <dt>{{indexMsg}}</dt> 
+        </div>   
     </router-link>
     <router-link to='/load' active-class="active" tag="li">
-        <div class="Index">{{loadMsg}}</div>   
+        <dl><img src="../img/movie.png" alt=""></dl>
+        <dt>{{loadMsg}}</dt>   
     </router-link>
 </div>
     
@@ -16,27 +20,26 @@
         },
         data: function(){
            return {
-                indexMsg:'这是首页了',
-                loadMsg: 'loading..',
-                indexClass: "Index",
-                loadClass: "Index"
+                indexMsg:'首页',
+                loadMsg: '列表'
            }
         }
     }
 </script>
 <style>
-    li{
+    .tabs li{
         overflow: hidden;
         float: left;
         width: 45%;
         height: 25px;
         line-height: 25px;
-        border-radius: 5px;
         margin-left: 11px;
         font-weight: bold;
-        border: 1px solid #ED5464;
     }
     .bg{
         background-color:grey;
+    }
+    dl img{
+        width: 20px;
     }
 </style>

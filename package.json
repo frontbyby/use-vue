@@ -4,12 +4,16 @@
   "author": "vue",
   "version": "0.0.1",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --host localhost --port 8088",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --host localhost --port 3000",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "start": "cross-env NODE_ENV=production webpack&&node index.js"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "element-ui": "^1.2.9",
+    "express": "^4.15.4",
     "jquery": "^3.2.1",
+    "superagent": "^3.6.0",
     "vue": "^2.0.1"
   },
   "devDependencies": {

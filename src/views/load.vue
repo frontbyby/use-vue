@@ -19,7 +19,6 @@
     import $ from 'jquery';
     export default{
         mounted: function(){
-            
         },
          data() {
             return {
