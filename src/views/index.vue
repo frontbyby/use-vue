@@ -12,7 +12,6 @@
                         <a :href="item.link">
                             <img :src="item.pic" alt="">
                         </a>
-                        
                     </dt>
                     <dd>
                         <a>{{item.title}}</a>
@@ -98,9 +97,10 @@
     margin: 10px 0;
 }
 
-#Index .item img{
+#Index .item a img{
     width: 50px;
     height: 90px;
+    border: 1px solid #ddd;
 }
 #Index .item dd{
     word-wrap: break-word;
