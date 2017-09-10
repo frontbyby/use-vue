@@ -3,7 +3,7 @@
     <div id="sidebar">
         <h2>收废品清单</h2>
         <div class="collapse" @click="toggle()"> <p> {{sideBars === "fold" ? ">>" : "<<"}} </p></div>
-        <ul v-show="!collapse">
+        <ul v-show="!sideBars === 'fold'">
             <li class="item">菜单</li>
             <li class="item">旧手机</li>
             <li class="item">旧电脑</li>

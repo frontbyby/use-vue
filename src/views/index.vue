@@ -1,8 +1,12 @@
 <template>
     <div id="Index" @click="hide">
         <h2>豆瓣推荐小说</h2>
-        <ul>
-            <li v-for=" item in lists" :key= "item.title" class="item lf">
+        <div class="loading" v-show="!lists.length">
+            <img src="../img/hj.gif" alt="">
+            <div class="loadText">Loading...</div>
+        </div>
+        <ul v-show="lists.length">
+            <li v-for=" (item, i) in lists" :key= "item.title" class="item lf">
                 <dl>
                     <dt>
                         <a :href="item.link">
@@ -24,6 +28,9 @@
     import bus from "../bus";
     export default{
         created: function(){
+            if(new Date() - new Date(window.localStorage.firstLogin) > 86500000) {
+                window.localStorage.clear();
+            }
             var that = this;
             !window.localStorage.getItem("source") && $.ajax({
                 type: "GET",
@@ -31,6 +38,7 @@
                 success: function(data){
                     console.log(data);
                     that.$data.lists = data;
+                    window.localStorage.setItem("firstLogin", new Date())
                     window.localStorage.setItem("source", JSON.stringify(data))
                 }
             })
@@ -38,7 +46,7 @@
         data: function(){
            return {
                 Msg:'这是首页了',
-                lists: JSON.parse(window.localStorage.getItem("source")) || []
+                lists: JSON.parse(window.localStorage.source) || []
            }
         },
         methods: {
@@ -53,6 +61,22 @@
     overflow: hidden;
     width: 100%;
     padding: 5%;
+}
+#Index .loading{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(77, 142, 156, 1);
+}
+#Index .loading img{
+    width: 150px;
+    margin-top: 50%;
+}
+#Index .loading .loadText{
+    font-size:16px;
+    font-weight: bold;
 }
 #Index h2{
     position: fixed;
