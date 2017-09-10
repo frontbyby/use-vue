@@ -1,6 +1,6 @@
 /*首页登录页*/
 <template>
-    <div id="load">
+    <div id="load" @click="hide">
         <div id="check">
             <el-form ref="form" :model="form" label-width="80px">
                 <el-form-item label="用户名" >
@@ -17,6 +17,7 @@
 <script>
     import { Form, FormItem, Button} from 'element-ui';
     import $ from 'jquery';
+    import bus from "../bus"
     export default{
         mounted: function(){
         },
@@ -35,8 +36,10 @@
                 if (this.form.name && this.form.pwd) {
                     console.log('submit!');
                     window.location.href = window.location.host+"/#/index"
-                }
-                
+                }  
+            },
+            hide: function() {
+                bus.$emit("change");
             }
         }
     }

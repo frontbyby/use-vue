@@ -1,5 +1,5 @@
 <template>
-    <div id="Index">
+    <div id="Index" @click="hide">
         <h2>豆瓣推荐小说</h2>
         <ul>
             <li v-for=" item in lists" :key= "item.title" class="item lf">
@@ -21,6 +21,7 @@
 </template>
 <script>
     import $ from 'jquery';
+    import bus from "../bus";
     export default{
         created: function(){
             var that = this;
@@ -40,9 +41,9 @@
                 lists: JSON.parse(window.localStorage.getItem("source")) || []
            }
         },
-        computed: {
-            formatTitle: function(title) {
-                
+        methods: {
+            hide() {
+                bus.$emit("change")
             }
         }
     }
