@@ -27,25 +27,26 @@ import $ from 'jquery';
 import bus from "../bus";
 export default {
     created: function() {
-        if (new Date() - new Date(window.localStorage.firstLogin) > 86500000) {
-            window.localStorage.clear();
-        }
         var that = this;
-        !window.localStorage.getItem("source") && $.ajax({
-            type: "GET",
-            url: "/spider",
-            success: function(data) {
-                console.log(data);
-                that.$data.lists = data;
-                window.localStorage.setItem("firstLogin", new Date())
-                window.localStorage.setItem("source", JSON.stringify(data))
-            }
-        })
+        if(!window.sessionStorage.source) {
+            $.ajax({
+                type: "GET",
+                url: "/spider",
+                success: function(data) {
+                    console.log(data);
+                    that.$data.lists = data;
+                    window.sessionStorage.setItem("firstLogin", new Date())
+                    window.sessionStorage.setItem("source", JSON.stringify(data))
+                }
+            })
+        } else {
+            that.$data.lists = JSON.parse(window.sessionStorage.source);
+        }
     },
     data: function() {
         return {
             Msg: '这是首页了',
-            lists: JSON.parse(window.localStorage.source) || []
+            lists:  []
         }
     },
     methods: {

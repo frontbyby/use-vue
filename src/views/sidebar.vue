@@ -3,8 +3,10 @@
         <div id="sidebar">
             <h2>时光机</h2>
             <div class="collapse" @click="toggle()">
-                <p> {{sideBars === "fold" ? ">>" : "
-                    << "}} </p></div>
+                <p> 
+                    {{sideBars === "fold" ? ">>" : " << "}} 
+                </p>
+                </div>
             <ul v-show="!(sideBars==='fold' ) ">
                 <li class="item ">菜单</li>
                 <li class="item ">旧手机</li>
