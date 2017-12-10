@@ -2,10 +2,20 @@
 var express = require('express');
 var cheerio = require('cheerio');
 var superagent = require('superagent');
+var webpack = require('webpack');
+var webpackConfig = require('./webpack.config');
+var compiler = webpack(webpackConfig);
+const WebpackDevMiddleware = require('webpack-dev-middleware')
+const webpackHotMiddleware = require("webpack-hot-middleware");
 // var url = 'https://book.douban.com/';
 var app = express();
 app.use(express.static(__dirname));
-app.use(express.static("spider_man"))
+app.use(express.static("spider_man"));
+app.use(WebpackDevMiddleware(compiler, {
+    publicPath: webpackConfig.output.publicPath,
+    quit: true
+}))
+app.use(webpackHotMiddleware(compiler))
 var port = process.port || 3000;
 var url = "https://book.douban.com/";
 app.get("/spider", function(req, res, next) {
