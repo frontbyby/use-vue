@@ -1,7 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/main.js',
   devtool: '#source-map',
@@ -43,14 +43,13 @@ module.exports = {
   },
   plugins: [
     // new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({
-      title: "main"
-    }),
+    // new HtmlWebpackPlugin({
+    //   title: "main"
+    // }),
     new webpack.HotModuleReplacementPlugin(),
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
     filename: 'bundle.js'
   },
 }

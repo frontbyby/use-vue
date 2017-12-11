@@ -1,68 +1,54 @@
 /*首页登录页*/
-<template>
-    <div id="load" @click="hide">
-        <div id="check">
-            <el-form ref="form" :model="form" label-width="80px">
-                <el-form-item label="用户名">
-                    <el-input v-model="form.name"></el-input>
-                </el-form-item>
-                <el-form-item label="密 码">
-                    <el-input v-model="form.pwd"></el-input>
-                </el-form-item>
-                <el-button type="primary" size="large" @click="onSubmit">登 录</el-button>
-            </el-form>
-        </div>
-    </div>
-</template>
-<script>
-import { Form, FormItem, Button } from 'element-ui';
-import $ from 'jquery';
-import bus from "../bus"
-export default {
-    mounted: function() {
-    },
-    data() {
-        return {
-            form: {
-                name: '',
-                pwd: ''
-            }
-        }
-    },
-    methods: {
-        onSubmit() {
-            console.log(name)
-            console.log(this.form.name)
-            if (this.form.name && this.form.pwd) {
-                console.log('submit!');
-                window.location.href = window.location.host + "/#/index"
-            }
-        },
-        hide: function() {
-            bus.$emit("change");
-        }
-    }
-}
-</script>
-<style>
-#load {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(255, 255, 255, .8)
-}
 
-#check {
-    position: absolute;
-    width: 30%;
-    height: 150px;
-    top: 140px;
-    left: 30%;
-    text-align: center;
-    line-height: 35px;
-    font-size: 16px;
-    padding: 10px;
-}
+<template>
+  <el-row class="content">
+    <el-col :xs="24" :sm="{span: 6,offset: 9}">
+      <span class="title">
+       欢迎登录 
+      </span>
+      <el-row>
+        <el-input 
+          v-model="account" 
+          placeholder="账号"
+          type="text">
+        </el-input>
+        <el-input 
+          v-model="password" 
+          placeholder="密码"
+          type="password">
+        </el-input>
+        <el-button type="primary">登录</el-button>
+      </el-row>
+    </el-col>
+  </el-row>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      account: '',
+      password: ''
+    };
+  }
+};
+</script>
+
+<style>
+  .el-row.content{
+      padding: 16px;
+  }
+  .title{
+      font-size: 28px
+  }
+    
+  .el-input{
+      margin: 12px 0
+  }
+    
+  .el-button{
+      width: 100%;
+    margin-top: 12px;
+  }
+       
 </style>
