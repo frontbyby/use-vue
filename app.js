@@ -1,5 +1,5 @@
 const Koa = require("koa"),
-      koaRouter = require("koa-router")(),
+      Router = require("koa-router"),
       json = require("koa-json"),
       logger = require("koa-logger"),
       bodyParser = require("koa-bodyparser");
