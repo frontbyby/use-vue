@@ -9,6 +9,7 @@ Vue.use(VueRouter)
 //2.配置路由
 const route = new VueRouter({
     linkActiveClass: "active",
+    mode: "history",
     routes: [{
             path: '/index',
             component: Index

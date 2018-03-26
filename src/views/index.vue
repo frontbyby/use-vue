@@ -59,7 +59,6 @@ export default {
 <style>
 #Index {
     overflow: hidden;
-    position: fixed;
     padding: 5%;
 }
 
